@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+  <script>
+
+//computer makes a random choice
+function computerPlay() {
+    let rand = Math.floor(Math.random() * 3);
+    if (rand === 0) {
+        return "ROCK"
+    } else if (rand === 1) {
+        return "PAPER"
+    } else {
+        return "SCISSORS"
+    }
+}
+
+//score tracker
+let playerScore = 0;
+let computerScore = 0;
+
+//runs through the game once
+function playGame(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toUpperCase();
+    if (playerSelection == "ROCK" && computerSelection == "PAPER" || playerSelection == "PAPER" && computerSelection == "SCISSORS" || playerSelection == "SCISSORS" && computerSelection == "ROCK") {
+        computerScore++;
+        return `You lose! ${computerSelection} beats ${playerSelection}!`
+    } else if (playerSelection == computerSelection) {
+        return `You both played ${playerSelection}. It's a tie!`
+    } else {
+        playerScore++;
+        return `You win! ${playerSelection} beats ${computerSelection}!`
+    }
+}
+
+//plays the game 5 times (no loops) and declares a winner
+function game() {
+    playerSelection = prompt("Type in Rock, Paper, or Scissors!");
+    computerSelection = computerPlay();
+    console.log(playGame(playerSelection, computerSelection));
+    playerSelection = prompt("Type in Rock, Paper, or Scissors!");
+    computerSelection = computerPlay();
+    console.log(playGame(playerSelection, computerSelection));
+    playerSelection = prompt("Type in Rock, Paper, or Scissors!");
+    computerSelection = computerPlay();
+    console.log(playGame(playerSelection, computerSelection));
+    playerSelection = prompt("Type in Rock, Paper, or Scissors!");
+    computerSelection = computerPlay();
+    console.log(playGame(playerSelection, computerSelection));
+    playerSelection = prompt("Type in Rock, Paper, or Scissors!");
+    computerSelection = computerPlay();
+    console.log(playGame(playerSelection, computerSelection));
+    if (playerScore > computerScore) {
+        return `You won the game!!!!`
+    } else if (playerScore < computerScore) {
+        return `You lost the game.... :(`
+    } else {
+        return `The round ends in a tie!!`
+    }
+}
+
+
+
+  </script>
+</body>
+</html>
