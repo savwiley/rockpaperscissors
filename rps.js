@@ -20,6 +20,8 @@ function declareWinner(playerScore, computerScore) {
         alert("You won the game!!");
     } else if (computerScore == 5) {
         alert("Sorry! You lost. :(")
+    } else if (playerScore > 5 || computerScore > 5) {
+      alert("Press the refresh button to reset the game! :)")
     }
 }
 
